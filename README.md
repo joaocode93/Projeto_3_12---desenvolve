@@ -55,6 +55,30 @@ Exemplos de análises realizadas:
 5. Produto mais vendido por quantidade.
 
 ---
+## ❓ Perguntas e Respostas do Projeto
+
+### 🔹 1. Por que uma planilha não é ideal para uma empresa que quer analisar suas vendas a fundo?
+
+- Limitação de espaço para o armazenamento de dados.
+- Difícil de manter consistência e integridade dos dados.
+- Poucos recurso para analise de dados e automação.
+- A analise de informações duplicadas e erros.
+
+---
+
+### 🔹 2. Que tipo de perguntas o dono da livraria gostaria de responder com esses dados?
+
+- Quais são os **clientes que mais gastam**?  
+- Quais **produtos mais vendem** e em quais períodos?  
+- Quais produtos não estão saindo muito?
+- Quanto vendeu em determinado período?
+- Como está o **estoque** atual e quais produtos precisam de reposição?  
+- Quais são os **picos de venda por dia/mês**?  
+- Qual é a **receita total** por categoria de produto ou por período?
+- O faturamento está crescendo ou diminuindo ao longo do tempo?
+- Como esta o giro de vendas para cada produto? Assim conseguimos indicar produtos para campanhas.
+
+---
 
 ### 🔹 3. Com base nos dados brutos, quais outras duas tabelas poderíamos criar?
 
