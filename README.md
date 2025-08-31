@@ -56,6 +56,68 @@ Exemplos de análises realizadas:
 
 ---
 
+### 🔹 3. Com base nos dados brutos, quais outras duas tabelas poderíamos criar?
+
+Além de `Clientes`, `Produtos` e `Vendas`, poderíamos criar:
+
+1. **Tabela Funcionarios**  
+   - `ID_Funcionario` (INT64)  
+   - `Nome_Funcionario` (STRING)  
+   - `Cargo` (STRING)  
+   - `Email` (STRING)
+
+2. **Tabela Fornecedores**  
+   - `ID_Fornecedor` (INT64)  
+   - `Nome_Fornecedor` (STRING)  
+   - `Contato` (STRING)  
+   - `Categoria_Produtos` (STRING)
+
+Essas tabelas ajudariam a acompanhar **responsáveis pelas vendas** e **origem dos produtos**.
+
+---
+
+### 🔹 4. Se o BigQuery não tem chaves estrangeiras, como garantir integridade?
+
+O BigQuery não valida automaticamente as relações, então a responsabilidade é do **analista/engenheiro de dados**:  
+- Conferir consistência dos dados ao inserir registros.  
+- Usar `JOIN` corretamente para relacionar as tabelas.  
+- Criar processos de ETL ou scripts para validar IDs inexistentes.
+
+---
+
+### 🔹 5. Por que inserir clientes e produtos antes das vendas?
+
+Inserir primeiro os **cadastros base** (clientes e produtos) garante:  
+- Que todos os registros de vendas referenciem **entidades existentes**.  
+- Facilidade em manter histórico de preços, categorias e dados dos clientes.  
+- Melhora a organização e evita duplicações.
+
+---
+
+### 🔹 6. Em um cenário com milhões de vendas por dia, `INSERT INTO` seria ideal?
+
+Não. Para grandes volumes, o ideal é:  
+- **Carga em lote (batch load)** com arquivos CSV/Parquet.  
+- Integração com pipelines ETL/ELT (Dataflow, Apache Beam, etc.).  
+- Isso é muito mais rápido e econômico que inserir linha por linha com `INSERT INTO`.
+
+---
+
+### 🔹 7. Principal vantagem de uma `VIEW` em vez de salvar código em arquivo de texto?
+
+- A `VIEW` **salva a lógica no banco** e sempre executa a consulta com dados atualizados.  
+- Evita reescrever ou procurar scripts manualmente.  
+- Permite versionamento, segurança e fácil compartilhamento.
+
+---
+
+### 🔹 8. O `Valor_Total` na VIEW será atualizado automaticamente?
+
+Sim! O BigQuery recalcula o `Valor_Total` **toda vez que a view é consultada**.  
+Se o preço em `Produtos` mudar, o resultado refletirá automaticamente a alteração, sem precisar reprocessar ou salvar dados manualmente.
+
+---
+
 ## 🖥️ View Criada
 
 A `v_relatorio_vendas_detalhado` simplifica a análise diária:
